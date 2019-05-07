@@ -1,4 +1,9 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import {
+  createStore,
+  applyMiddleware,
+  combineReducers,
+  compose,
+} from 'redux';
 import { apiMiddleware } from 'redux-api-middleware';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
