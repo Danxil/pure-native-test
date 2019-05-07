@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { apiMiddleware } from 'redux-api-middleware';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
@@ -24,9 +24,13 @@ export default () => {
 
   if (process.env.NODE_ENV === 'development') middlewares.push(logger);
 
+  // eslint-disable-next-line no-underscore-dangle
+  const composeEnhancers = global.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     rootReducer,
-    applyMiddleware(...middlewares),
+    composeEnhancers(
+      applyMiddleware(...middlewares),
+    ),
   );
 
   // sagaMiddleware.run(rootSaga);

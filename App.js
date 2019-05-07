@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 const App = () => (
   <Provider store={configureStore()}>
     <View style={styles.container}>

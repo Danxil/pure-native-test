@@ -1,8 +1,9 @@
 import { RSAA } from 'redux-api-middleware';
+import Config from 'react-native-config';
 
 export const getUserInfo = () => ({
   [RSAA]: {
-    endpoint: `${process.env.REACT_APP_BASE_REST_URL}/user`,
+    endpoint: `${Config.REACT_APP_BASE_REST_URL}`,
     method: 'GET',
     types: [
       'GET_USER_INFO_REQUEST',
@@ -14,7 +15,7 @@ export const getUserInfo = () => ({
 
 export const logout = () => ({
   [RSAA]: {
-    endpoint: `${process.env.REACT_APP_BASE_REST_URL}/logout`,
+    endpoint: `${Config.REACT_APP_BASE_REST_URL}/logout`,
     method: 'GET',
     types: [
       'LOGOUT_REQUEST',
