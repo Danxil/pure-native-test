@@ -2,12 +2,9 @@ import React from 'react';
 import {
   Platform, StyleSheet, View, StatusBar,
 } from 'react-native';
-import { Provider } from 'react-redux';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
-
-import configureStore from './redux/configureStore';
-
 import AppNavigator from './components/AppNavigator';
+import Provirers from './redux/Provirers';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,11 +15,11 @@ const styles = StyleSheet.create({
 });
 
 const App = () => (
-  <Provider store={configureStore()}>
+  <Provirers>
     <View style={styles.container}>
       {Platform.OS === 'ios' && <StatusBar style={styles.statusBar} />}
       <AppNavigator />
     </View>
-  </Provider>
+  </Provirers>
 );
 export default App;

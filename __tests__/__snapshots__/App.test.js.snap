@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<pure(Providers)>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "marginTop": 20,
+      }
+    }
+  >
+    <StatusBar
+      animated={false}
+      showHideTransition="fade"
+    />
+    <NavigationContainer />
+  </View>
+</pure(Providers)>
+`;
