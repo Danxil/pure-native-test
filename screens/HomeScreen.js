@@ -8,6 +8,9 @@ import { compose, pure } from 'recompose';
 
 import withUser from '../redux/containers/withUser';
 
+// components
+import WebSocket from '../components/WebSocket';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -30,6 +33,7 @@ const HomeScreen = ({ getUserInfo }: Props) => {
   return (
     <View style={styles.container}>
       <Text>Home Screen</Text>
+      <WebSocket />
     </View>
   );
 };

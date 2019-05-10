@@ -10,10 +10,12 @@ import logger from 'redux-logger';
 import restApiInjector from './middlewares/restApiInjector';
 
 import user from './user';
+import ws from './ws';
 
 export default () => {
   const rootReducer = combineReducers({
     user,
+    ws,
   });
 
   // const rootSaga = function* () {
