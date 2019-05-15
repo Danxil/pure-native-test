@@ -1,6 +1,5 @@
 import React from 'react';
-import { compose, pure } from 'recompose';
-import { Provider } from 'react-redux';
+import { StoreContext } from 'redux-react-hook';
 
 import configureStore from './configureStore';
 
@@ -8,8 +7,8 @@ type Provirers = {
   children: React.Node,
 }
 const Providers = ({ children }: Provirers) => (
-  <Provider store={configureStore()}>
+  <StoreContext.Provider value={configureStore()}>
     {children}
-  </Provider>
+  </StoreContext.Provider>
 );
-export default compose(pure)(Providers);
+export default React.memo(Providers);

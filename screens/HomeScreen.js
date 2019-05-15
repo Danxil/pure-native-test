@@ -4,9 +4,9 @@ import {
   View,
   Text,
 } from 'react-native';
-import { compose, pure } from 'recompose';
 
-import withUser from '../redux/containers/withUser';
+import user from '../redux/hooks/selectors/user';
+import userActions from '../redux/hooks/actions/userActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,10 +17,10 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = {
-  getUserInfo: () => void,
-}
-const HomeScreen = ({ getUserInfo }: Props) => {
+const HomeScreen = () => {
+  const userInfo = user();
+  const { getUserInfo } = userActions();
+  console.log(userInfo);
   useEffect(
     () => {
       getUserInfo();
@@ -33,7 +33,4 @@ const HomeScreen = ({ getUserInfo }: Props) => {
     </View>
   );
 };
-export default compose(
-  withUser(),
-  pure,
-)(HomeScreen);
+export default React.memo(HomeScreen);
